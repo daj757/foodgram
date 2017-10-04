@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+.navbar {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: #F47B53;
+
+}
+#nameBrand {
+	color: white;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#nameBrand:hover {
+	color: #62EDD6;
+}
+
+.dropdown {
+	background-color: #F47B53;
+}
+
+#cutlery {
+	color:white;
+	margin-left: .25em;
+}
