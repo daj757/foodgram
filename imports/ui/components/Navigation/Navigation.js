@@ -11,7 +11,7 @@ const Navigation = props => (
   <Navbar >
     <Navbar.Header>
       <Navbar.Brand>
-        <Link id="nameBrand" to="/">Gula</Link><i id="cutlery" className="fa fa-cutlery" aria-hidden="true"></i>
+        <Link id="nameBrand" to="/">Goola</Link><i id="cutlery" className="fa fa-cutlery" aria-hidden="true"></i>
 
       </Navbar.Brand>
       <Navbar.Toggle />

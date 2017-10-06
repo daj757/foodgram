@@ -13,7 +13,7 @@ const copyrightYear = () => {
 const Footer = () => (
   <div className="Footer">
     <Grid>
-      <p className="pull-left">&copy; {copyrightYear()} Gula App Inc</p>
+      <p className="pull-left">&copy; {copyrightYear()} Goola App Inc</p>
       <ul className="pull-right">
         <li><Link to="/terms">Terms<span className="hidden-xs"> and Conditions</span></Link></li>
         <li><Link to="/aboutUs">About<span className="hidden-xs"> Us</span></Link></li>

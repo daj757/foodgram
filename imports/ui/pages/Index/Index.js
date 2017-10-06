@@ -19,7 +19,7 @@ const Index = () => (
 
   <div id= "main" className="Index">
    
-    <h1>Gula</h1>
+    <h1>Goola</h1>
     <p>An Instagram for food lovers</p>
     <div>
          <ImagesUploader
