@@ -31,8 +31,7 @@ const parseFacebookData = service => {
 
 const getDataForService = (profile, services) => {
   if (services.facebook) return parseFacebookData(services.facebook);
-  if (services.github) return parseGithubData(profile, services.github);
-  if (services.google) return parseGoogleData(services.google);
+  
 };
 
 export default (options, user) => {
