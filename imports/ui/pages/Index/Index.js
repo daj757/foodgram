@@ -36,7 +36,7 @@ export default class Index extends React.Component {
   } else {
     console.log(res)
   }
-   this.handleImageUpload(files[0]);
+   // this.handleImageUpload(files[0]);
 });
   
 
