@@ -28,7 +28,7 @@ import Footer from '../../components/Footer/Footer';
 import Terms from '../../pages/Terms/Terms';
 import AboutUs from '../../pages/AboutUs/aboutUs';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
-
+import GridView from '../../components/Grid/Grid'
 import './App.scss';
 
 const handleResendVerificationEmail = (emailAddress) => {
@@ -56,6 +56,7 @@ const App = props => (
           <Authenticated exact path="/profile" component={Profile} {...props} />
           <Public path="/signup" component={Signup} {...props} />
           <Public path="/login" component={Login} {...props} />
+          <Route path="/grid" component={GridView}/>
           <Route path="/logout" component={Logout} {...props} />
           <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
           <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
