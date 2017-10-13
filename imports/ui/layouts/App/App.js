@@ -28,12 +28,9 @@ import Footer from '../../components/Footer/Footer';
 import Terms from '../../pages/Terms/Terms';
 import AboutUs from '../../pages/AboutUs/aboutUs';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
-<<<<<<< HEAD
 import Map from '../../pages/Map/Map';
 
-=======
 import GridView from '../../components/Grid/Grid'
->>>>>>> 1e160068cbd2f425f4b0537c17d06783e8e1a037
 import './App.scss';
 
 const handleResendVerificationEmail = (emailAddress) => {

@@ -25,23 +25,16 @@
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.2",
-<<<<<<< HEAD
     "react-google-maps": "^8.3.5",
-=======
     "react-dropzone": "^4.1.3",
     "react-flipcard-2": "^0.3.2",
->>>>>>> 1e160068cbd2f425f4b0537c17d06783e8e1a037
     "react-images-upload": "^1.1.1",
     "react-images-uploader": "^1.1.0",
     "react-router-bootstrap": "^0.24.3",
     "react-router-dom": "^4.2.2",
-<<<<<<< HEAD
     "recompose": "^0.26.0",
-    "simpl-schema": "^0.3.2"
-=======
     "simpl-schema": "^0.3.2",
     "superagent": "^3.6.3"
->>>>>>> 1e160068cbd2f425f4b0537c17d06783e8e1a037
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
