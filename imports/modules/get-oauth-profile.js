@@ -1,13 +1,3 @@
-const parseGoogleData = service => {
-  return {
-    email: service.email,
-    name: {
-      first: service.given_name,
-      last: service.family_name,
-    },
-  };
-};
-
 const parseGithubData = (profile, service) => {
   const name = profile.name.split(' ');
   return {
@@ -31,7 +21,7 @@ const parseFacebookData = service => {
 
 const getDataForService = (profile, services) => {
   if (services.facebook) return parseFacebookData(services.facebook);
-  
+  if (services.github) return parseGithubData(profile, services.github);
 };
 
 export default (options, user) => {
