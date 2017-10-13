@@ -28,6 +28,8 @@ import Footer from '../../components/Footer/Footer';
 import Terms from '../../pages/Terms/Terms';
 import AboutUs from '../../pages/AboutUs/aboutUs';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
+import Map from '../../pages/Map/Map';
+
 import GridView from '../../components/Grid/Grid'
 import './App.scss';
 
@@ -49,6 +51,7 @@ const App = props => (
       <Grid>
         <Switch>
           <Route exact name="index" path="/" component={Index} />
+          {/* <Route exact name="Map" path="/" component={Map} /> */}
           <Authenticated exact path="/documents" component={Documents} {...props} />
           <Authenticated exact path="/documents/new" component={NewDocument} {...props} />
           <Authenticated exact path="/documents/:_id" component={ViewDocument} {...props} />
@@ -64,6 +67,7 @@ const App = props => (
           <Route name="terms" path="/terms" component={Terms} />
           <Route name="aboutUs" path="/aboutus" component={AboutUs} />
           <Route name="examplePage" path="/example-page" component={ExamplePage} />
+          <Route name="map" path="/map" component={Map} />
           <Route component={NotFound} />
         </Switch>
       </Grid>
