@@ -28,6 +28,7 @@
     "react-dom": "^15.6.2",
     "react-dropzone": "^4.1.3",
     "react-flipcard-2": "^0.3.2",
+    "react-flop-card": "^0.3.0",
     "react-geolocation": "^1.0.3",
     "react-google-maps": "^8.3.5",
     "react-images-upload": "^1.1.1",
