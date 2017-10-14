@@ -29,6 +29,7 @@ import Terms from '../../pages/Terms/Terms';
 import AboutUs from '../../pages/AboutUs/aboutUs';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 import Map from '../../pages/Map/Map';
+import GeoLocate from '../../components/GeoLocate/GeoLocate';
 
 import GridView from '../../components/Grid/Grid'
 import './App.scss';
@@ -68,6 +69,7 @@ const App = props => (
           <Route name="aboutUs" path="/aboutus" component={AboutUs} />
           <Route name="examplePage" path="/example-page" component={ExamplePage} />
           <Route name="map" path="/map" component={Map} />
+          <Route name="geo" path="/geo" component={GeoLocate} />
           <Route component={NotFound} />
         </Switch>
       </Grid>

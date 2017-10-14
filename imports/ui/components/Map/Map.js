@@ -41,5 +41,3 @@ const MapWithAMakredInfoWindow = compose(
 );
 
 export default MapWithAMakredInfoWindow;
-
-//comment
