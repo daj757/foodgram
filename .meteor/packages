@@ -35,3 +35,4 @@ static-html
 http
 cfs:standard-packages
 cfs:gridfs
+cfs:filesystem
