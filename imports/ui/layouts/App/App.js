@@ -30,7 +30,7 @@ import AboutUs from '../../pages/AboutUs/aboutUs';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 import Map from '../../pages/Map/Map';
 import GeoLocate from '../../components/GeoLocate/GeoLocate';
-import PlacesAutocomplete from '../../components/PlacesAutocomplete/index';
+import PlacesAutocomplete from '../../pages/PlacesAutocomplete/Demo';
 
 
 import GridView from '../../components/Grid/Grid'
