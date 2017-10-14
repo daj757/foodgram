@@ -3,29 +3,36 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
+// const createMedium = function(fileObj, readStream, writeStream) {
+//   gm(readStream, fileObj.name()).resize('800', '800').stream().pipe(writeStream);
+// };
+const imageStore = new FS.Store.GridFS("images");
 
-// const Images = new Mongo.Collection('Images');
+const Images = new FS.Collection("images", {
+ stores: [imageStore],
+ filter: {
+  // maxSize: 3145728,
+  allow: {
+    contentTypes: ['image/*'],
+    extensions: ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG']
+  }
+}
+})
 
-var imageStore = new FS.Store.GridFS(“images”);
-
-Images = new FS.Collection(“images”, {
- stores: [imageStore]
-});
-
-Images.deny({
- insert: function(){
- return false;
- },
- update: function(){
- return false;
- },
- remove: function(){
- return false;
- },
- download: function(){
- return false;
- }
- });
+// Images.deny({
+//  insert: function(){
+//  return false;
+//  },
+//  update: function(){
+//  return false;
+//  },
+//  remove: function(){
+//  return false;
+//  },
+//  download: function(){
+//  return false;
+//  }
+//  });
 
 Images.allow({
  insert: function(){
@@ -72,6 +79,6 @@ Images.schema = new SimpleSchema({
   },
 });
 
-Images.attachSchema(Images.schema);
+// Images.attachSchema(Images.schema);
 
 export default Images;
