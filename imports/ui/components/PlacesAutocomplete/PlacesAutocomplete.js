@@ -278,11 +278,11 @@ class PlacesAutocomplete extends Component {
                 id="PlacesAutocomplete__google-logo"
                 style={this.inlineStyleFor('googleLogoContainer')}
                 className={this.classNameFor('googleLogoContainer')}>
-                <img
+                {/* <img
                   src={require(`./images/powered_by_google_${this.props.googleLogoType}.png`)}
                   style={this.inlineStyleFor('googleLogoImage')}
                   className={this.classNameFor('googleLogoImage')}
-                />
+                /> */}
               </div>)
             }
           </div>
