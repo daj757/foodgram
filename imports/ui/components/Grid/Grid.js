@@ -12,7 +12,7 @@ export default class GridView extends Component {
     this.cards = Array.apply(null, {length: 64}).map((val, ind) => ({
       key: String(ind),
       style: {
-        front: this.getFrontStyle(ind),
+        front: frontStyle,
         back: backStyle,
         wrapper: wrapperStyle
       },
@@ -23,15 +23,15 @@ export default class GridView extends Component {
     }));
   }
 
-  getFrontStyle(ind) {
-    const y = (ind - ind % 8) / 8 * -104;
-    const x = ind % 8 * -104 -300;
-    const backgroundStyle = `url("public/images/rl.jpeg") ${x}px ${y}px/auto`;
-    return {
-      background: backgroundStyle,
-      borderRadius: '20px'
-    };
-  }
+  // getFrontStyle(ind) {
+  //   const y = (ind - ind % 8) / 8 * -104;
+  //   const x = ind % 8 * -104 -300;
+  //   const backgroundStyle = `url("public/images/rl.jpeg") ${x}px ${y}px/auto`;
+  //   return {
+  //     background: backgroundStyle,
+  //     borderRadius: '20px'
+  //   };
+  // }
 
   render() {
     return (
@@ -52,7 +52,11 @@ export default class GridView extends Component {
     );
   }
 }
-
+const frontStyle = {
+  // backgroundColor: '#E3B505',
+  backgroundImage: "url('./images/rl.jpeg')",
+  borderRadius: '20px'
+}
 const backStyle = {
   backgroundColor: '#E3B505',
   borderRadius: '20px'
