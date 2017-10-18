@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 import { FlipCard } from 'react-flop-card';
+import ImageArray from '../ImageArray/ImageArray';
+
+
+const gridLength = ImageArray.length;
 
 
 export default class GridView extends Component {
@@ -9,10 +13,11 @@ export default class GridView extends Component {
     this.state = {
       flippedKey: null
     };
-    this.cards = Array.apply(null, {length: 64}).map((val, ind) => ({
+    
+    this.cards = Array.apply(null, {length: gridLength}).map((val, ind) => ({
       key: String(ind),
       style: {
-        front: frontStyle,
+        front: loop(),
         back: backStyle,
         wrapper: wrapperStyle
       },
@@ -21,6 +26,7 @@ export default class GridView extends Component {
       onMouseOver: () => { this.setState({ flippedKey: String(ind) }); },
       onMouseOut: () => { this.setState({ flippedKey: null }); }
     }));
+    // console.log(FrontStyle);
   }
 
   // getFrontStyle(ind) {
@@ -52,11 +58,24 @@ export default class GridView extends Component {
     );
   }
 }
-const frontStyle = {
-  // backgroundColor: '#E3B505',
-  backgroundImage: "url('./images/rl.jpeg')",
-  borderRadius: '20px'
+// var frontArray = [];
+// for (var i = 0; i < ImageArray.length; i++) {
+//   frontArray.push({
+//     backgroundImage: `url('./images/${ImageArray[i]}')`,
+//     borderRadius: '25px'
+//   });
+// }
+var ticker = -1;
+const loop = ()=> {
+  ticker++;
+  for (var i = 0; i < ImageArray.length; i++) {
+    if (i === ticker) {
+      return ImageArray[i];
+    }
+  }
 }
+
+
 const backStyle = {
   backgroundColor: '#E3B505',
   borderRadius: '20px'
