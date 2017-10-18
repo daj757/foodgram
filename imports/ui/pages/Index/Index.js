@@ -21,8 +21,20 @@ export default class Index extends React.Component {
     };
   }
 
-  onImageDrop(file) {
+  onImageDrop(files) {
 
+ S3.upload({
+        files:files,
+        path:"subfolder"
+      },function(e,r){
+        if(e){
+          console.log(e)
+        }
+        else{
+        console.log(r);
+      }
+    });
+  
     // _.each(files, function(file) {
             // file.owner = Meteor.userId();
             // FS.Utility.eachFile(event, function(file) { 
