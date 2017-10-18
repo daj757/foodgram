@@ -9,6 +9,12 @@ var absolutePathToProject = path.resolve(absolutePathToScript, "../../../..")
 import getPrivateFile from '../../../modules/server/get-private-file';
 import parseMarkdown from '../../../modules/parse-markdown';
 const PythonShell = require('python-shell');
+S3.config = {
+  key: 'AKIAI6RBJ6GYRQGKVDEA',
+  secret: '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',
+  bucket: 'goola',
+  region: 'us-west-2' // Only needed if not "us-east-1" or "us-standard"
+};
 
 Meteor.methods({
   'utility.getPage': function utilityGetPage(fileName) {
@@ -20,6 +26,7 @@ Meteor.methods({
   	console.log("this is it ", pathToPyScript)
 	  var options = {
       scriptPath: pathToPyScript
+
     }
 	
 	PythonShell.run("script1.py", options, function(err, results) {
