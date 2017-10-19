@@ -1,22 +1,32 @@
 import os, sys
 
 import tensorflow as tf
-
+import requests
+import shutil
+import urllib
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # change this as you see fit
-image_path = sys.argv[1]
+#image_path = sys.argv[1]
+image_path = "http://www.franchise.co.nz/fimage/url/333/SeriousLambBurger.jpg"
+# Read in image at URL (make an HTTP GET request)
+###################
+
+#response = requests.get(image_path, stream=True)
+#with open('img.jpg', 'wb') as out_file:
+#    shutil.copyfileobj(response.raw, out_file)
 
 # Read in the image_data
-image_data = tf.gfile.FastGFile(image_path, 'rb').read()
+image_data = urllib.request.urlretrieve(image_path)
+#image_data = tf.gfile.FastGFile(image_path, 'rb').read()
 
 # Loads label file, strips off carriage return
 label_lines = [line.rstrip() for line 
-                   in tf.gfile.GFile("retrained_labels.txt")]
+                   in tf.gfile.GFile(os.path.abspath("/Users/DJ/Dropbox/PREWORK_DJ/Code/foodgram/imports/api/Utility/server/retrained_labels.txt"))]
 
 # Unpersists graph from file
-with tf.gfile.FastGFile("retrained_graph.pb", 'rb') as f:
+with tf.gfile.FastGFile(os.path.abspath("/Users/DJ/Dropbox/PREWORK_DJ/Code/foodgram/imports/api/Utility/server/retrained_graph.pb"), 'rb') as f:
     graph_def = tf.GraphDef()
     graph_def.ParseFromString(f.read())
     tf.import_graph_def(graph_def, name='')
@@ -37,5 +47,5 @@ with tf.Session() as sess:
         if (score > .8):
         	print("You chose... ", human_string)
         # print('%s (score = %.5f)' % (human_string, score)
-    # else:
-    # 	print("No image")
+        else:
+    	    print("image not recognized")

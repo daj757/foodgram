@@ -23,17 +23,17 @@ export default class Index extends React.Component {
 
   onImageDrop(files) {
 
- S3.upload({
-        files:files,
-        path:"subfolder"
-      },function(e,r){
-        if(e){
-          console.log(e)
-        }
-        else{
-        console.log(r);
-      }
-    });
+ // S3.upload({
+ //        files:files,
+ //        path:"subfolder"
+ //      },function(e,r){
+ //        if(e){
+ //          console.log(e)
+ //        }
+ //        else{
+ //        console.log(r);
+ //      }
+ //    });
   
     // _.each(files, function(file) {
             // file.owner = Meteor.userId();
@@ -61,7 +61,8 @@ export default class Index extends React.Component {
 //   }
 // });
 
-        Meteor.call('utility.imageAI',(err, res) => {
+      // Pass in AWS URL to python script
+        Meteor.call('utility.imageAI',(files),(err, res) => {
      if (err) {
        console.log(err);
      } else {

@@ -1,3 +1,5 @@
-charmander
-pikachu
-squirtle
+donuts
+hamburger 
+hotdog
+pizza
+sushi
