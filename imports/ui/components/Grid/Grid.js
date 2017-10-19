@@ -1,27 +1,59 @@
 import React, { Component } from 'react';
-
 import { FlipCard } from 'react-flop-card';
-
+import ImageArray from '../ImageArray/ImageArray';
+const gridLength = ImageArray.length;
 
 export default class GridView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      flippedKey: null
+      flippedKey: []
     };
-    this.cards = Array.apply(null, {length: 64}).map((val, ind) => ({
+    this.cards = Array.apply(null, {length: gridLength}).map((val, ind) => ({
       key: String(ind),
       style: {
-        front: frontStyle,
+        front: loop(),
         back: backStyle,
         wrapper: wrapperStyle
       },
       frontChild: (<noscript/>),
       backChild: (<p style={ letterStyle }>{ randomLetter() }</p>),
-      onMouseOver: () => { this.setState({ flippedKey: String(ind) }); },
-      onMouseOut: () => { this.setState({ flippedKey: null }); }
+      onClick: () => {
+        if (this.state.flippedKey.includes(String(ind))) {
+          var newFlipped = this.state.flippedKey;
+          if (newFlipped.indexOf(String(ind)) > -1) {
+              newFlipped.splice(newFlipped.indexOf(String(ind)), 1);
+          }
+          this.setState({flippedKey: newFlipped});
+        } else {
+          var newFlipped = this.state.flippedKey;
+          newFlipped.push(String(ind));
+          this.setState({flippedKey: newFlipped});
+        }
+      },
+      // onMouseOut: () => { this.setState({ flippedKey: null }); }
     }));
+    // console.log(FrontStyle);
   }
+
+  render() {
+    return (
+      <div style={ containerStyle }>
+        { this.cards.map(({
+          key, frontChild, backChild, onClick, style
+        }) => (
+          <FlipCard
+            key={ key }
+            flipped={ this.state.flippedKey.includes(key) }
+            onClick={ onClick }
+            frontChild={ frontChild } backChild={ backChild }
+            width={ 250 } height={ 250 } style={ style }/>
+        )) }
+      </div>
+    );
+  }
+}
+
 
   // getFrontStyle(ind) {
   //   const y = (ind - ind % 8) / 8 * -104;
@@ -33,37 +65,31 @@ export default class GridView extends Component {
   //   };
   // }
 
-  render() {
-    return (
-      <div style={ containerStyle }>
-        { this.cards.map(({
-          key, frontChild, backChild, onMouseOver, onMouseOut, style
-        }) => (
-
-          <FlipCard
-            key={ key }
-            flipped={ this.state.flippedKey === key }
-            onMouseOut={ onMouseOut } onMouseOver={ onMouseOver }
-            frontChild={ frontChild } backChild={ backChild }
-            width={ 250 } height={ 250 } style={ style }/>
-
-        )) }
-      </div>
-    );
+// var frontArray = [];
+// for (var i = 0; i < ImageArray.length; i++) {
+//   frontArray.push({
+//     backgroundImage: `url('./images/${ImageArray[i]}')`,
+//     borderRadius: '25px'
+//   });
+// }
+var ticker = -1;
+const loop = ()=> {
+  ticker++;
+  for (var i = 0; i < ImageArray.length; i++) {
+    if (i === ticker) {
+      return ImageArray[i];
+    }
   }
 }
-const frontStyle = {
-  // backgroundColor: '#E3B505',
-  backgroundImage: "url('./images/rl.jpeg')",
-  borderRadius: '20px'
-}
+
+
 const backStyle = {
-  backgroundColor: '#E3B505',
+  backgroundColor: '#084C61',
   borderRadius: '20px'
 };
 
 const letterStyle = {
-  color: '#084C61',
+  color: '#E3B505',
   fontSize: '80px',
   margin: '20px 0',
   textAlign: 'center',

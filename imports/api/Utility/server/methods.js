@@ -10,6 +10,10 @@ import getPrivateFile from '../../../modules/server/get-private-file';
 import parseMarkdown from '../../../modules/parse-markdown';
 const PythonShell = require('python-shell');
 
+const Keys = require('./keys.js');
+S3.config = Keys;
+
+
 Meteor.methods({
   'utility.getPage': function utilityGetPage(fileName) {
     check(fileName, String);
@@ -20,8 +24,9 @@ Meteor.methods({
   	console.log("this is it ", pathToPyScript)
 	  var options = {
       scriptPath: pathToPyScript
+
     }
-	
+
 	PythonShell.run("script1.py", options, function(err, results) {
             if (err) {
               console.log(err)
@@ -39,6 +44,6 @@ Meteor.methods({
   // console.log(`stderr: ${stderr}`);
 
   // })
-  
-  }      
+
+  }
 });
