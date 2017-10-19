@@ -14,7 +14,6 @@ const Keys = require('./keys.js');
 S3.config = Keys;
 
 
-
 Meteor.methods({
   'utility.getPage': function utilityGetPage(fileName) {
     check(fileName, String);
