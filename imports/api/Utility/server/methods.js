@@ -12,6 +12,11 @@ import parseMarkdown from '../../../modules/parse-markdown';
 const PythonShell = require('python-shell');
 
 
+const Keys = require('./keys.js');
+S3.config = Keys;
+
+
+
 Meteor.methods({
   'utility.getPage': function utilityGetPage(fileName) {
     check(fileName, String);
@@ -27,8 +32,10 @@ Meteor.methods({
       args: files
 
     }
-	
-	PythonShell.run("tensor.py", options, function(err, results) {
+
+
+	PythonShell.run("script1.py", options, function(err, results) {
+
             if (err) {
               console.log(err)
             }
@@ -45,6 +52,6 @@ Meteor.methods({
   // console.log(`stderr: ${stderr}`);
 
   // })
-  
-  }      
+
+  }
 });

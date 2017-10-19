@@ -23,21 +23,10 @@ export default class Index extends React.Component {
 
   onImageDrop(files) {
 
- // S3.upload({
- //        files:files,
- //        path:"subfolder"
- //      },function(e,r){
- //        if(e){
- //          console.log(e)
- //        }
- //        else{
- //        console.log(r);
- //      }
- //    });
-  
+
     // _.each(files, function(file) {
             // file.owner = Meteor.userId();
-            // FS.Utility.eachFile(event, function(file) { 
+            // FS.Utility.eachFile(event, function(file) {
         //before upload also save the owner of that file
             // Images.insert(file, function(err, fileObj) {
             //     if (err) {
@@ -106,7 +95,7 @@ export default class Index extends React.Component {
     </form>
      </div>
      </div>
-    
+
     )
   }
 }
