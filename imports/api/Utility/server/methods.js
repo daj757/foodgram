@@ -9,12 +9,10 @@ var absolutePathToProject = path.resolve(absolutePathToScript, "../../../..")
 import getPrivateFile from '../../../modules/server/get-private-file';
 import parseMarkdown from '../../../modules/parse-markdown';
 const PythonShell = require('python-shell');
-S3.config = {
-  key: '',
-  secret: '',
-  bucket: '',
-  region: '' // Only needed if not "us-east-1" or "us-standard"
-};
+
+const Keys = require('./keys.js');
+S3.config = Keys;
+
 
 Meteor.methods({
   'utility.getPage': function utilityGetPage(fileName) {
