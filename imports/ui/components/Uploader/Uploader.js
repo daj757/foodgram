@@ -1,73 +1,72 @@
 
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import './Index.scss';
+import {Button} from 'react-bootstrap';
+import '../../pages/Index/Index.scss';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
-import { Meteor } from 'meteor/meteor';
-
+import {Meteor} from 'meteor/meteor';
+import Images from '/imports/api/Documents/Images';
 
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      owner: "",
       uploadedFile: null,
-      uploadedFileCloudinaryUrl: ''
+      distanceRating: 0,
+      location: "",
+      name: ""
     };
   }
-
   onImageDrop(files) {
-    this.setState({
-      uploadedFile: files[0]
+    S3.upload({
+      files:files,
+      path:"subfolder"
+    },
+    function(e,r) {
+      if(e){
+        console.log(e)
+      } else {
+        console.log(r);
+      }
     });
-     Meteor.call('utility.imageAI', files[0],(err, res) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(res)
+    Meteor.call('utility.imageAI',(err, res) => {
+      if (err) {
+        console.log(err);
+      } else {
+      console.log(res)
+      }
+    })
   }
-   // this.handleImageUpload(files[0]);
-});
-
-
-  }
-
-  const imageResponsiveInstance = (
-    <Image src="/assets/thumbnail.png" responsive />
-  );
-
   handleImageUpload(file) {
-    let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                     .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                     .field('file', file);
-
+    let upload = request.post(CLOUDINARY_UPLOAD_URL).field('upload_preset', CLOUDINARY_UPLOAD_PRESET).field('file', file);
     upload.end((err, response) => {
       if (err) {
         console.error(err);
       }
-
       if (response.body.secure_url !== '') {
-        this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
-        });
+        this.setState({uploadedFileCloudinaryUrl: response.body.secure_url});
       }
     });
   }
-render() {
-  return (
-  <div id= "main" className="Index">
-    <form>
-       <Dropzone
-      multiple={false}
-      accept="image/*"
-      onDrop={this.onImageDrop.bind(this)}>
-      <p>Drop an image or click to select a file to upload.</p>
-    </Dropzone>
-      </form>
-  </div>
-  )
-}
+  render() {
+    return (
+      <div id= "main" className="Index">
+        <div>
+          <h1>Goola</h1>
+          <p>An Instagram for food lovers</p>
+          <form>
+            <Dropzone
+              multiple={false}
+              accept="image/*"
+              onDrop={this.onImageDrop.bind(this)}>
+              <p>Drop an image or click to select a file to upload.</p>
+            </Dropzone>
+          </form>
+        </div>
+      </div>    
+    )
+  }
 }

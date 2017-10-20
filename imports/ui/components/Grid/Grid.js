@@ -36,16 +36,6 @@ export default class GridView extends Component {
     }));
     // console.log(FrontStyle);
   }
-  loop = ()=> {
-    var ticker = -1;
-    ticker++;
-    for (var i = 0; i < ImageArray.length; i++) {
-      if (i === ticker) {
-        return ImageArray[i];
-      }
-    }
-  }
-
   render() {
     return (
       <div style={ containerStyle }>
