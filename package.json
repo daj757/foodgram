@@ -27,7 +27,7 @@
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.2",
-    "react-dropzone": "^4.1.3",
+    "react-dropzone": "^4.2.1",
     "react-flipcard-2": "^0.3.2",
     "react-flop-card": "^0.3.0",
     "react-geolocation": "^1.0.3",
@@ -39,7 +39,7 @@
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0",
     "simpl-schema": "^0.3.2",
-    "superagent": "^3.6.3"
+    "superagent": "^3.7.0"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
