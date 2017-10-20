@@ -66,11 +66,14 @@ export default class Index extends React.Component {
             </Dropzone>
           </form>
         </div>
-        <GridView />
-      </div>
+        <GridView>
+          
+        </GridView>
+      </div>    
     )
   }
 }
+
 
 // _.each(files, function(file) {
             // file.owner = Meteor.userId();
