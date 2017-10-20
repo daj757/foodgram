@@ -4,6 +4,7 @@ import ImageArray from '../ImageArray/ImageArray';
 const gridLength = ImageArray.length;
 
 export default class GridView extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -34,6 +35,15 @@ export default class GridView extends Component {
       // onMouseOut: () => { this.setState({ flippedKey: null }); }
     }));
     // console.log(FrontStyle);
+  }
+  loop = ()=> {
+    var ticker = -1;
+    ticker++;
+    for (var i = 0; i < ImageArray.length; i++) {
+      if (i === ticker) {
+        return ImageArray[i];
+      }
+    }
   }
 
   render() {
