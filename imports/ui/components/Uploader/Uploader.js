@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import '../../pages/Index/Index.scss';
+import './Uploader.scss';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import 'react-images-uploader/styles.css';
