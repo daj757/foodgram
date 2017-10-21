@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlipCard } from 'react-flop-card';
 import ImageArray from '../ImageArray/ImageArray';
+import './Grid.scss';
 const gridLength = ImageArray.length;
 
 export default class GridView extends Component {
@@ -38,7 +39,7 @@ export default class GridView extends Component {
   }
   render() {
     return (
-      <div style={ containerStyle }>
+      <div class="grid" style={ containerStyle }>
         { this.cards.map(({
           key, frontChild, backChild, onClick, style
         }) => (

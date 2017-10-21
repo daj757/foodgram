@@ -1,6 +1,10 @@
 @import '../../stylesheets/mixins';
 @import '../../stylesheets/colors';
 
+form {
+  color: black;
+}
+
 .Index {
   padding: 20px;
   background: $cb-blue;
