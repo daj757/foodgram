@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
+import AWS from 'aws-sdk';
 import { FlipCard } from 'react-flop-card';
 import ImageArray from '../ImageArray/ImageArray';
-
-
-const gridLength = ImageArray.length;
-
+import Keys from '/imports/Utility/server/keys'
 
 export default class GridView extends Component {
   constructor(props) {
@@ -13,6 +10,7 @@ export default class GridView extends Component {
     this.state = {
       flippedKey: null
     };
+
     
     this.cards = Array.apply(null, {length: gridLength}).map((val, ind) => ({
       key: String(ind),

@@ -18,8 +18,8 @@ image_path = "http://www.franchise.co.nz/fimage/url/333/SeriousLambBurger.jpg"
 #    shutil.copyfileobj(response.raw, out_file)
 
 # Read in the image_data
-image_data = urllib.request.urlretrieve(image_path)
-#image_data = tf.gfile.FastGFile(image_path, 'rb').read()
+image_name = urllib.request.urlretrieve(image_path)
+image_data = tf.gfile.FastGFile(image_name, 'rb').read()
 
 # Loads label file, strips off carriage return
 label_lines = [line.rstrip() for line 

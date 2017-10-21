@@ -8,6 +8,10 @@ import 'react-images-uploader/font.css';
 import {Meteor} from 'meteor/meteor';
 import Images from '/imports/api/Documents/Images';
 
+
+// import GridView from '/imports/ui/components/Grid';
+// import MapWithAMakredInfoWindow from '../../components/Map';
+
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -24,34 +28,19 @@ export default class Index extends React.Component {
   onImageDrop(files) {
 
 
-    // _.each(files, function(file) {
-            // file.owner = Meteor.userId();
-            // FS.Utility.eachFile(event, function(file) {
-        //before upload also save the owner of that file
-            // Images.insert(file, function(err, fileObj) {
-            //     if (err) {
-            //         console.log(err, fileObj); //in case there is an error, log it to the console
-            //     } else {
-            //       console.log("Success image loaded")
-            //         //the image upload is done successfully.
-            //         //you can use this callback to add the id of your file into another collection
-            //         //for this you can use fileObj._id to get the id of the file
-            //     }
-            //   });
-             // });
-        // });
-//      Template.myForm.events({
-//   'change .myFileInput': function(event, template) {
-//     FS.Utility.eachFile(event, function(file) {
-//       Images.insert(file, function (err, fileObj) {
-//         // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-//       });
-//     });
-//   }
-// });
-
+       S3.upload({
+        files:files,
+        path:"subfolder"
+      },function(e,r){
+        if(e){
+          console.log(e)
+        }
+        else{
+        console.log(r);
+      }
+    });
       // Pass in AWS URL to python script
-        Meteor.call('utility.imageAI',(files),(err, res) => {
+        Meteor.call('utility.imageAI',(err, res) => {
      if (err) {
        console.log(err);
      } else {
@@ -66,19 +55,7 @@ export default class Index extends React.Component {
   //   <Image src="/assets/thumbnail.png" responsive />
   // );
 
-  handleImageUpload(file) {
-    let upload = request.post(CLOUDINARY_UPLOAD_URL).field('upload_preset', CLOUDINARY_UPLOAD_PRESET).field('file', file);
 
-    upload.end((err, response) => {
-      if (err) {
-        console.error(err);
-      }
-
-      if (response.body.secure_url !== '') {
-        this.setState({uploadedFileCloudinaryUrl: response.body.secure_url});
-      }
-    });
-  }
   render() {
     return (
       <div id= "main" className="Index">
@@ -94,6 +71,7 @@ export default class Index extends React.Component {
     </Dropzone>
     </form>
      </div>
+     
      </div>
 
     )
