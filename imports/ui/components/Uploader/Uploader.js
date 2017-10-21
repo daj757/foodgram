@@ -9,6 +9,9 @@ import 'react-images-uploader/font.css';
 import {Meteor} from 'meteor/meteor';
 import Images from '/imports/api/Documents/Images';
 import PlacesAutocomplete from '../../pages/PlacesAutocomplete/Demo';
+import Map from '../../pages/Map/Map';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -65,9 +68,10 @@ export default class Index extends React.Component {
               onDrop={this.onImageDrop.bind(this)}>
               <p>Drop an image or click to select a file to upload.</p>
             </Dropzone>
-            <PlacesAutocomplete />
+            {/* <PlacesAutocomplete /> */}
           </form>
         </div>
+        <button><a href="http://localhost:3000/map">Map</a></button>
       </div>    
     )
   }
