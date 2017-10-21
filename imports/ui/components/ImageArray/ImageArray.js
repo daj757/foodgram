@@ -67,6 +67,15 @@ const ImageArray = [
 
 var frontArray = [];
 
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+}
+
+shuffle(ImageArray);
+
 for (var i = 0; i < ImageArray.length; i++) {
   frontArray.push({backgroundImage: `url('./images/${ImageArray[i]}')`, borderRadius: '25px'});
 }
