@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { FlipCard } from 'react-flop-card';
 import ImageArray from '../ImageArray/ImageArray';
-import './Grid.scss';
 const gridLength = ImageArray.length;
 
 export default class GridView extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -33,13 +31,11 @@ export default class GridView extends Component {
           this.setState({flippedKey: newFlipped});
         }
       },
-      // onMouseOut: () => { this.setState({ flippedKey: null }); }
     }));
-    // console.log(FrontStyle);
   }
   render() {
     return (
-      <div class="grid" style={ containerStyle }>
+      <div style={ containerStyle }>
         { this.cards.map(({
           key, frontChild, backChild, onClick, style
         }) => (
@@ -109,7 +105,7 @@ const wrapperStyle = {
 };
 
 function randomLetter() {
-  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const possible = '12345';
   return possible.charAt(
     Math.floor(Math.random() * possible.length)
   );
