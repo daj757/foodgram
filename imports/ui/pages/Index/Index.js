@@ -9,10 +9,13 @@ import {Meteor} from 'meteor/meteor';
 import Images from '/imports/api/Documents/Images';
 import GridView from '../../components/Grid/Grid';
 import Uploader from '../../components/Uploader/Uploader';
+// import PlacesAutocomplete from '../PlacesAutocomplete/Demo';
+
 
 const IndexPage = () => (
   <div className="IndexPage">
    <Uploader />
+   {/* <PlacesAutocomplete /> */}
    <GridView />
   </div>
 );
